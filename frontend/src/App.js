@@ -68,6 +68,11 @@ function App() {
           )
         })
       }
+
+      <button onClick={() => {
+        axios.get("https://workshop-signup.herokuapp.com/workshops/reset")
+        getWorkshopData();
+        }}>Reset</button>
     </div>
   );
 }
