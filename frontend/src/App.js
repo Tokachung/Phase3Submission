@@ -12,21 +12,19 @@ import { useAuth0 } from "@auth0/auth0-react";
 
 function App() {
 
+  const [workshops, setWorkshops] = useState([])
+
   const { user, isAuthenticated, isLoading } = useAuth0();
-  if (isLoading) {
-    return <div>Loading ...</div>;
+  async function getWorkshopData() {
+    const workshops = await axios.get("https://workshop-signup.herokuapp.com/workshops")
+    console.log(workshops.data);
+    setWorkshops(workshops.data)
   }
 
-  // useEffect(async () => {
+  useEffect(async () => {
+    await getWorkshopData()
+  }, [])
 
-  //   const workshops = await axios.get("https://workshop-signup.herokuapp.com/workshops")
-  //   console.log(workshops)
-
-  //   const id = 1; // change depending on what the user clicks
-  //   const name = "Jonathan" // user input
-  //   const request = await axios.post(`https://workshop-signup.herokuapp.com/workshop/${id}/register`, { "name": name })
-
-  // }, [])
 
   return (
     <div className="App">
@@ -46,6 +44,29 @@ function App() {
           </div>
         )
 
+      }
+
+      { isAuthenticated && 
+        workshops.map((workshop) => {
+          return (
+            <div>
+              <div>ID: {workshop.id}</div>
+              <div>{workshop.name}</div>
+              {
+                workshop.volunteers.map((vol) => {
+                  return (
+                    <div>{vol}</div>
+                  )
+                })
+              }
+              <button onClick={() => {
+                axios.post(`https://workshop-signup.herokuapp.com/workshop/${workshop.id}/register`, { "name": user.name })
+                alert(`You have registered for ${workshop.name} workshop`)
+                getWorkshopData();
+              }}>Register</button>
+            </div>
+          )
+        })
       }
     </div>
   );
