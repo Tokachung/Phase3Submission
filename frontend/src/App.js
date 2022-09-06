@@ -53,9 +53,9 @@ function App() {
               <div>ID: {workshop.id}</div>
               <div>{workshop.name}</div>
               {
-                workshop.volunteers.map((vol) => {
+                workshop.volunteers.map((volunteer) => {
                   return (
-                    <div>{vol}</div>
+                    <div>{volunteer}</div>
                   )
                 })
               }

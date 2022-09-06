@@ -12,14 +12,18 @@ import { Auth0Provider } from "@auth0/auth0-react";
 // which you can access using the useAuth0() hook.
 
 
+
+// injecting App.js into index.js
 const root = ReactDOM.createRoot(document.getElementById('root'));
+
+// setting up 0Auth
 root.render(
   <Auth0Provider
   domain="dev-v9zaiss3.us.auth0.com"
   clientId="1U8VFcTh0mQfWbyFo2rxfAHy6CxSKBpB"
   redirectUri={window.location.origin}
 >
-  <App />
+  <App /> 
 </Auth0Provider>
 );
 

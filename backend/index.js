@@ -27,6 +27,13 @@ app.post('/workshop/:id/register', function (req, res) {
   res.send();
 })
 
+app.get('/workshops/reset', (req, res) => {
+  for (let workshop of workshops) {
+    workshop.volunteers = []
+  }
+  res.send();
+})
+
 app.listen(process.env.PORT || 3000, function () {
   console.log("Server is running on port 3000");
 });
