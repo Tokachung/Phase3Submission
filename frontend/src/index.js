@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
+import { render } from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
@@ -11,20 +11,18 @@ import { Auth0Provider } from "@auth0/auth0-react";
 // It also exposes helper methods to log in and log out your users,
 // which you can access using the useAuth0() hook.
 
-
-
-// injecting App.js into index.js
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const rootElement = document.getElementById('root');
 
 // setting up 0Auth
-root.render(
+render(
   <Auth0Provider
-  domain="dev-v9zaiss3.us.auth0.com"
-  clientId="1U8VFcTh0mQfWbyFo2rxfAHy6CxSKBpB"
-  redirectUri={window.location.origin}
->
-  <App /> 
-</Auth0Provider>
+    domain="dev-v9zaiss3.us.auth0.com"
+    clientId="1U8VFcTh0mQfWbyFo2rxfAHy6CxSKBpB"
+    redirectUri={window.location.origin}
+  >
+    <App />
+  </Auth0Provider>,
+  rootElement
 );
 
 // If you want to start measuring performance in your app, pass a function
