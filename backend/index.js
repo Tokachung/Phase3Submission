@@ -4,7 +4,15 @@ require('dotenv').config()
 
 // instantiating an app. Creating an instance of express
 const app = express()
-const workshops = [{ id: 1, name: "Botany Library", volunteers: ["Beatrice Everall"], date: "15/09/22" }, { id: 2, name: "Pakuranga Library", volunteers: [], date: "16/09/22" }]
+const workshops = [{ id: 1, name: "Botany Library", volunteers: ["Beatrice Everall"], date: "15/09/22" }, 
+,{ id: 2, name: "Long Bay College", volunteers: [], date: "16/09/22"}
+,{ id: 2, name: "Rosebank Primary School", volunteers: [], date: "17/09/22"}
+,{ id: 2, name: "Puekoware School", volunteers: [], date: "18/09/22"}
+,{ id: 2, name: "Pukekohe Intermediate School", volunteers: [], date: "19/09/22"}
+,{ id: 2, name: "St Joseph's Catholic School", volunteers: [], date: "20/09/22"}
+,{ id: 2, name: "Oteha Valley School", volunteers: [], date: "21/09/22"}
+,{ id: 2, name: "Bombay School", volunteers: [], date: "22/09/22"}
+,{ id: 2, name: "Botany Library", volunteers: [], date: "23/09/22"}]
 var cors = require('cors')
 
 app.use(cors())
