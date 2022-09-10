@@ -150,7 +150,7 @@ function App() {
           isAuthenticated &&
           workshops.map((workshop) => {
             return (
-              <BasicCard workshop={workshop}></BasicCard>
+              <BasicCard workshop={workshop} fetchData={getWorkshopData}></BasicCard>
             )
           })
         }

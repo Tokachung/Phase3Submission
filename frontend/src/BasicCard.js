@@ -12,7 +12,7 @@ import { useState, useEffect } from "react"
 import { useAuth0, User } from "@auth0/auth0-react";
 
 
-export default function BasicCard({ workshop }) {
+export default function BasicCard({ workshop, fetchData }) {
 
   const { user, isAuthenticated, isLoading } = useAuth0();
   const [workshops, setWorkshops] = useState([])
@@ -73,7 +73,7 @@ export default function BasicCard({ workshop }) {
         <Button size="medium" onClick={() => {
           axios.post(`https://workshop-signup.herokuapp.com/workshop/${workshop.id}/register`, { "name": user.name })
           alert(`You have registered for ${workshop.name} workshop`)
-          getWorkshopData();
+          fetchData();
         }}>Register</Button>
 
 
