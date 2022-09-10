@@ -4,7 +4,8 @@ require('dotenv').config()
 
 // instantiating an app. Creating an instance of express
 const app = express()
-const workshops = [{ id: 1, name: "Botany Library", volunteers: ["Beatrice Everall"], date: "15/09/22" }, 
+const workshops = [
+ { id: 1, name: "Botany Library", volunteers: ["Beatrice Everall"], date: "15/09/22" }
 ,{ id: 2, name: "Long Bay College", volunteers: [], date: "16/09/22"}
 ,{ id: 3, name: "Rosebank Primary School", volunteers: [], date: "17/09/22"}
 ,{ id: 4, name: "Puekoware School", volunteers: [], date: "18/09/22"}
